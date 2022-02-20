@@ -44,12 +44,15 @@ export default function App() {
     const diffThursdayAbs = Math.abs(nextThursday.diff(today, 'seconds'));
     const diffSundayAbs = Math.abs(nextSunday.diff(today, 'seconds'));
 
+    // function to absolute value
+    const absDay = (value: number) => Math.abs(value);
+
     let nextNearDay = moment();
 
-    if (diffMondayAbs < diffSundayAbs && diffMondayAbs < diffThursdayAbs && diffMonday > 0) {
+    if (absDay(diffMonday) < absDay(diffThursday) && absDay(diffMonday) < absDay(diffThursday) && diffMonday > 0) {
       nextNearDay = nextMonday
     }
-    else if (diffThursdayAbs < diffSundayAbs && diffThursday > 0) {
+    else if (absDay(diffThursday) < absDay(diffSunday) && diffThursday > 0) {
       nextNearDay = nextThursday
     }
     else if(diffSunday > 0) {
