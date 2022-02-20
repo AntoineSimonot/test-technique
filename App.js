@@ -33,7 +33,7 @@ export default function App() {
     nextSunday.set({'hour': 14, 'minute': 54, 'seconds': 0});
 
 
-    // wich is the next day
+    // which is the next day
     const diffMonday = nextMonday.diff(today, 'seconds');
     const diffThursday = nextThursday.diff(today, 'seconds');
     const diffSunday = nextSunday.diff(today, 'seconds');
@@ -76,7 +76,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text>Il reste {days} jours, {hours} heures, {minutes}, et {secondes} secondes</Text>
+      <Text>Il reste {days} jours, {hours} heures, {minutes} minutes, et {secondes} secondes</Text>
       <StatusBar style="auto" />
     </View>
   );
