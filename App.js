@@ -24,7 +24,6 @@ export default function App() {
     const nextMonday  = moment().add(1, 'weeks').isoWeekday(1);
     nextMonday.set({'hour': 17, 'minute': 0, 'seconds': 0});
 
-    console.log(nextMonday)
     // get next friday 
     const nextThursday = moment().add(1, 'weeks').isoWeekday(4);
     nextThursday.set({'hour': 2, 'minute': 37, 'seconds': 0});
