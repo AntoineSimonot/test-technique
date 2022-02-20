@@ -77,7 +77,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text>Il reste {days} jour, {hours} heures, {minutes}, et {secondes}</Text>
+      <Text>Il reste {days} jours, {hours} heures, {minutes}, et {secondes} secondes</Text>
       <StatusBar style="auto" />
     </View>
   );
