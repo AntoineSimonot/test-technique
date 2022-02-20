@@ -15,21 +15,22 @@ export default function App() {
 
     // get current date
     const interval = setInterval(() => {
-        const currentTime = moment() as moment.Moment;
+        const currentTime = moment();
         setToday(currentTime);
     }, 1000);
 
 
-    // get next monday
-    const nextMonday  = moment().add(1, 'weeks').isoWeekday(1);
-    nextMonday.set({'hour': 17, 'minute': 0, 'seconds': 0});
+    // get next monday if is monday isn't already passed
+    const nextMonday = moment().day(1)
+    nextMonday.set({'hour': 17, 'minute': 0, 'seconds': 0 });
 
     // get next friday 
-    const nextThursday = moment().add(1, 'weeks').isoWeekday(4);
+    const nextThursday = moment().day(4)
     nextThursday.set({'hour': 2, 'minute': 37, 'seconds': 0});
 
+
     // get next sunday
-    const nextSunday = moment().add(1, 'weeks').isoWeekday(6);
+    const nextSunday = moment().day(6)
     nextSunday.set({'hour': 14, 'minute': 54, 'seconds': 0});
 
 
@@ -37,17 +38,26 @@ export default function App() {
     const diffMonday = nextMonday.diff(today, 'seconds');
     const diffThursday = nextThursday.diff(today, 'seconds');
     const diffSunday = nextSunday.diff(today, 'seconds');
- 
+    
+    // absolute value
+    const diffMondayAbs = Math.abs(nextMonday.diff(today, 'seconds'));
+    const diffThursdayAbs = Math.abs(nextThursday.diff(today, 'seconds'));
+    const diffSundayAbs = Math.abs(nextSunday.diff(today, 'seconds'));
+
     let nextNearDay = moment();
 
-    if (diffMonday < diffSunday && diffMonday < diffThursday) {
+    if (diffMondayAbs < diffSundayAbs && diffMondayAbs < diffThursdayAbs && diffMonday > 0) {
       nextNearDay = nextMonday
     }
-    else if (diffThursday < diffMonday && diffThursday < diffSunday) {
+    else if (diffThursdayAbs < diffSundayAbs && diffThursday > 0) {
       nextNearDay = nextThursday
     }
-    else {
+    else if(diffSunday > 0) {
       nextNearDay = nextSunday
+    }
+    else {
+      nextMonday.add(7, 'days');
+      nextNearDay = nextMonday
     }
 
     // formating date
@@ -66,13 +76,6 @@ export default function App() {
 
   }, [today]);
 
-  if (today === null) {
-    return (
-      <View style={styles.container}>
-        <Text>Loading...</Text>
-      </View>
-    );
-  }
 
   return (
     <View style={styles.container}>
