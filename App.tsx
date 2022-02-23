@@ -127,7 +127,7 @@ export default function App() {
 
     
       <View style={styles.footer}>
-        <View style={styles.links}>
+        <View style={styles.icones}>
         <Logo link='https://www.linkedin.com/in/simonotantoine/' logoImg='linkedin'></Logo>
           <Logo link='https://github.com/AntoineSimonot/test-technique' logoImg='github'></Logo>
           <Logo link='https://fr.fiverr.com/gryphenrn?up_rollout=true' logoImg='fiverr'></Logo>
@@ -156,43 +156,6 @@ const progressBarStyle = (percent: string) => {
 }
 
 const styles = StyleSheet.create({
-  links:{
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: '100%',
-  },
-  footerLink: {
-    color: '#10d4df',
-    fontWeight: 'bold',    
-    textDecorationLine: 'underline',
-    textDecorationStyle: 'solid',
-    textDecorationColor: '#10d4df',
-    fontStyle: 'italic',
-  },
-  footerText: {
-    fontSize: 16,
-    color: '#EEEEEE',
-    fontWeight: 'bold',
-    marginTop: 10,
-    marginBottom: 30,
-  },
-  footer: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    width: '100%',
-    height: '15%',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  timeContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginTop: 20,
-    width: '100%',
-  },
   body: {
     flex: 1,
     alignItems: 'center',
@@ -258,12 +221,11 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     marginBottom: 20,
   },
-  rocket: {
-    width: 50,
-    height: 50,
-    zIndex: 5,
-    alignSelf: 'flex-start',
-    marginLeft: 20,
+  timeContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 20,
+    width: '100%',
   },
   progressBarContainer: {
     width: '100%',
@@ -280,6 +242,38 @@ const styles = StyleSheet.create({
     top: 0,
     bottom: 0,
     transform: [{ translateY: 6 }],
-    fontSize: 21,
-  }
+    fontSize:
+     21,
+  },
+  footer: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    width: '100%',
+    height: '15%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  footerLink: {
+    color: '#10d4df',
+    fontWeight: 'bold',    
+    textDecorationLine: 'underline',
+    textDecorationStyle: 'solid',
+    textDecorationColor: '#10d4df',
+    fontStyle: 'italic',
+  },
+  footerText: {
+    fontSize: 16,
+    color: '#EEEEEE',
+    fontWeight: 'bold',
+    marginTop: 10,
+    marginBottom: 30,
+  },
+  icones:{
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+  },
 });
