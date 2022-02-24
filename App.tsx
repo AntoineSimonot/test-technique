@@ -20,7 +20,7 @@ export default function App() {
 
     // get current date
     const interval = setInterval(() => {
-        const currentTime = moment().day(7);
+        const currentTime = moment();
         setToday(currentTime);
     }, 1000);
 
