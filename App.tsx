@@ -20,7 +20,7 @@ export default function App() {
 
     // get current date
     const interval = setInterval(() => {
-        const currentTime = moment() ;
+        const currentTime = moment().day(7);
         setToday(currentTime);
     }, 1000);
 
@@ -62,8 +62,7 @@ export default function App() {
       setDayName('Jeudi')
     }
     else if(diffSunday > 0) {
-      diff = nextSunday.diff(nextMonday, 'seconds');
-
+      diff = nextMonday.add(7, 'days').diff(nextSunday, 'seconds');
       nextNearDay = nextSunday
       setDayName('Samedi')
     }
@@ -87,10 +86,13 @@ export default function App() {
     setMinutes(Math.floor(minutes));
     setSecondes(Math.floor(secondes));
 
-    let dayProgression = ((100 - ((duration.asSeconds()) / diff) * 100).toString() + '%');
+
+    console.log(diff, duration)
+    let dayProgression = (Math.abs(((100 - ((duration.asSeconds()) / diff) * 100)))).toString() + '%'
+  
     setDayProgression(dayProgression)
 
-   setDayProgressSub(dayProgression.substring(0, 2) + '%')
+   setDayProgressSub(dayProgression.substring(0, 3) + '%')
     return () => clearInterval(interval);
 
    
