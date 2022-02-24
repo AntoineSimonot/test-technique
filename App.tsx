@@ -48,7 +48,7 @@ export default function App() {
     const absDay = (value: number) => Math.abs(value);
 
     let nextNearDay = moment();
-    let diff = Number.MAX_SAFE_INTEGER;
+    let diff = 0;
 
     if (absDay(diffMonday) < absDay(diffThursday) && absDay(diffMonday) < absDay(diffThursday) && diffMonday > 0) {
       nextNearDay = nextMonday
@@ -86,7 +86,6 @@ export default function App() {
     setSecondes(Math.floor(secondes));
 
 
-    console.log(diff, duration)
     let dayProgression = (Math.abs(((100 - ((duration.asSeconds()) / diff) * 100)))).toString() + '%'
   
     setDayProgression(dayProgression)
@@ -112,15 +111,15 @@ export default function App() {
         </View>
 
         <View style={styles.timeContainer}>
-          <Time uniteValue={days} uniteName="jours" border={true}></Time>
-          <Time uniteValue={hours} uniteName="heures" border={true}></Time>
-          <Time uniteValue={minutes} uniteName="minutes" border={true}></Time>
-          <Time uniteValue={secondes} uniteName="secondes" border={false}></Time>
+          <Time uniteValue={days!} uniteName="jours" border={true}></Time>
+          <Time uniteValue={hours!} uniteName="heures" border={true}></Time>
+          <Time uniteValue={minutes!} uniteName="minutes" border={true}></Time>
+          <Time uniteValue={secondes!} uniteName="secondes" border={false}></Time>
         </View>
 
 
         <View style={styles.progressBarContainer}>
-          <View style={progressBarStyle(dayProgression)}></View>
+          <View style={progressBarStyle(dayProgression!)}></View>
           <Text style={[styles.text, styles.progressionValue]}>{dayProgressSub}</Text>
         </View>
 
