@@ -53,16 +53,15 @@ export default function App() {
     if (absDay(diffMonday) < absDay(diffThursday) && absDay(diffMonday) < absDay(diffThursday) && diffMonday > 0) {
       nextNearDay = nextMonday
       setDayName('Lundi')
-      diff = nextThursday.diff(nextMonday, 'seconds');
+      diff = nextSunday.diff(nextMonday, 'seconds');
     }
     else if (absDay(diffThursday) < absDay(diffSunday) && diffThursday > 0) {
       nextNearDay = nextThursday
-     diff = nextSunday.diff(nextThursday, 'seconds');
-
+      diff = nextThursday.diff(nextMonday, 'seconds');
       setDayName('Jeudi')
     }
     else if(diffSunday > 0) {
-      diff = nextMonday.add(7, 'days').diff(nextSunday, 'seconds');
+      diff = nextSunday.diff(nextThursday, 'seconds');
       nextNearDay = nextSunday
       setDayName('Samedi')
     }
@@ -92,7 +91,7 @@ export default function App() {
   
     setDayProgression(dayProgression)
 
-   setDayProgressSub(dayProgression.substring(0, 3) + '%')
+   setDayProgressSub(dayProgression.substring(0, 4) + '%')
     return () => clearInterval(interval);
 
    
